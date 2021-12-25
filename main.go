@@ -2,7 +2,8 @@ package main
 
 import (
 	"github.com/Xwudao/junet/app"
-	"github.com/gin-gonic/gin"
+
+	"github.com/Xwudao/junet-template/pkg/routes"
 )
 
 func main() {
@@ -12,8 +13,7 @@ func main() {
 		app.SetLong("junet project template"),
 	)
 
-	r.GET("/", func(c *gin.Context) {
-		app.SendJson(c, app.OkRtn("hello junet!"))
-	})
+	routes.Setup(r)
+
 	panic(r.Start(3000))
 }
